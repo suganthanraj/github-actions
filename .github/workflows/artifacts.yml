@@ -1,0 +1,24 @@
+name: Sample Artifacts
+on: push
+jobs:
+    job_1:
+        name: upload artifact
+        runs-on: ubuntu-latest
+        steps:
+          - name: "Creating a local artifact file"
+            run: echo "Hi , here is my sample artifact file. Here you can save your information 
+                 and upload it into wherever and whenever it necessary" > artifacts.txt
+          - uses: actions/upload-artifact@v2
+            with:
+              name: artifacts
+              path: artifacts.txt
+    job_1:
+        name: Download artifact
+        runs-on: ubuntu-latest
+        steps:          
+          - uses: actions/download-artifact@v2
+            with:
+                name: artifacts
+                path: artifacts.txt
+          - run: cat artifacts.txt
+              
