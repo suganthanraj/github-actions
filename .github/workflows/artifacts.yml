@@ -12,7 +12,7 @@ jobs:
             with:
               name: artifacts
               path: artifacts.txt
-    job_1:
+    job_2:
         name: Download artifact
         runs-on: ubuntu-latest
         steps:          
